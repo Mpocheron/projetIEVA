@@ -14,6 +14,13 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
 
+    public GameObject collectibles;
+    private float totalPoids = 0f;
+
+    public CollectionHandler collectionHandler;
+    private float playerPoids = 0f;
+    private float speedMult = 1f;
+
     private InputAction moveInput;
     private InputAction runInput;
 
@@ -26,7 +33,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // Pour récuperer la somme des poids de tout les collectibles
         characterController = GetComponentInChildren<CharacterController>();
+        for (int i = 0; i < collectibles.transform.childCount; i++)
+        {
+            totalPoids += collectibles.transform.GetChild(i).GetComponent<CollectibleVariables>().poids;
+        }
 
         moveInput = InputSystem.actions.FindAction("Move");
         runInput = InputSystem.actions.FindAction("Sprint");
@@ -41,10 +53,12 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveInput.ReadValue<Vector2>();
 
-        if (!characterController.isGrounded)
-            jumped = false;
+        if (!characterController.isGrounded) jumped = false;
 
-        currentMoveSpeed = runInput.IsPressed() ? Runningspeed : Walkspeed;
+        playerPoids = collectionHandler.playerPoids;
+        speedMult = 1f - (playerPoids / (totalPoids*2)); // A aucun objet collecté, le mult est a 1, avec tout les objets collectés, le mult est a 0.5 
+
+        currentMoveSpeed = runInput.IsPressed() ? Runningspeed * speedMult : Walkspeed * speedMult;
         HandleMovement(moveVector);
     }
 

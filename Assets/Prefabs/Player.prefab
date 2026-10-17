@@ -166,7 +166,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6937584748197352255}
@@ -214,7 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd4380d5e9a5d8488045932981bc063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectionHandler
-  score: 0
+  playerPoids: 0
+  playerValeur: 0
 --- !u!1 &6436850240420395487
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ GameObject:
   - component: {fileID: 5715458596689928433}
   - component: {fileID: 184099314161750654}
   - component: {fileID: 1481218268944994850}
+  - component: {fileID: 2602324178896048647}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -331,6 +333,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   LookSensitivity: 0.2
   LookAngleLimit: 90
+--- !u!54 &2602324178896048647
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6436850240420395487}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8891098208963122451
 GameObject:
   m_ObjectHideFlags: 0
