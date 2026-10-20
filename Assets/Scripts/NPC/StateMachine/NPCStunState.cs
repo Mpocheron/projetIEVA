@@ -6,13 +6,15 @@ public class NPCStunState : State
 
     public override void Enter()
     {
+        navMeshAgent.isStopped = true;
+
         NPCmaterial.color = Color.white;
-        navMeshAgent.ResetPath();
     }
 
     public override void Exit()
     {
-
+        navMeshAgent.isStopped = false;
+        navMeshAgent.ResetPath();
     }
 
     public override void Do()

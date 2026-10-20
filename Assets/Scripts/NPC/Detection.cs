@@ -18,6 +18,7 @@ public class Detection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Debug.Log("Player Detected");
             isPlayerDetected = true;
             playerCollider = other;
         }
@@ -27,6 +28,7 @@ public class Detection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Debug.Log("Player Lost");
             isPlayerDetected = false;
             playerCollider = null;
         }

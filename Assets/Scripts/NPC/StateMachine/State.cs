@@ -13,16 +13,20 @@ public abstract class State : MonoBehaviour
 
     protected Detection detection;
 
+    protected ContactDetection contactDetection;
+
     protected Material NPCmaterial;
+
 
     public virtual void Enter() { }
     public virtual void Do() { }
     public virtual void FixedDo() { }
     public virtual void Exit() { }
 
-    public void Setup(NavMeshAgent _navMeshAgent, Detection _detection, Material _npcMaterial) { 
+    public void Setup(NavMeshAgent _navMeshAgent, Detection _detection, ContactDetection _contactDetection, Material _npcMaterial) { 
         navMeshAgent = _navMeshAgent;
-        detection= _detection;
+        detection = _detection;
+        contactDetection = _contactDetection;
         NPCmaterial = _npcMaterial;
     }
 

@@ -8,6 +8,7 @@ public class NPCControler : MonoBehaviour
     public NPCPatrolState patrolState;
     public NPCChaseState chaseState;
     public NPCStunState stunState;
+    public NPCIdleState idleState;
 
     State state;
 
@@ -18,14 +19,17 @@ public class NPCControler : MonoBehaviour
 
     public Detection detection;
 
+    public ContactDetection contactDetection;
+
 
     void Start()
     {
         Material material = GetComponent<Renderer>().material;
 
-        patrolState.Setup(navMeshAgent, detection, material);
-        chaseState.Setup(navMeshAgent, detection, material);
-        stunState.Setup(navMeshAgent, detection, material);
+        patrolState.Setup(navMeshAgent, detection, contactDetection, material);
+        chaseState.Setup(navMeshAgent, detection, contactDetection, material);
+        stunState.Setup(navMeshAgent, detection, contactDetection, material);
+        idleState.Setup(navMeshAgent, detection, contactDetection, material);
         
         state = patrolState;
     }
@@ -34,16 +38,17 @@ public class NPCControler : MonoBehaviour
     {
         if (state.IsComplete)
         {
+            state.Exit();
             SelectState();
         }
 
         state.Do();
     }
 
-    void SelectState()
+    protected void SelectState()
     {
-        if (state == chaseState) {
-            state = stunState;
+        if (contactDetection.isTouchingPlayer) {
+            state = idleState;
         }
         else {
             if (detection.isPlayerDetected) {
@@ -57,4 +62,14 @@ public class NPCControler : MonoBehaviour
         state.Initialise();
         state.Enter();
     }
+
+    public void InterruptState(State newState)
+    {
+        state.Exit();
+        state = newState;
+
+        state.Initialise();
+        state.Enter();
+    }
+
 }
