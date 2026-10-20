@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class NPCControler : MonoBehaviour
 {
+    /* --- State Variables ---*/
+
     public NPCPatrolState patrolState;
     public NPCChaseState chaseState;
     public NPCStunState stunState;
@@ -10,11 +12,13 @@ public class NPCControler : MonoBehaviour
     State state;
 
 
+    /* --- Blackboard Variables ---*/
+
     public NavMeshAgent navMeshAgent;
 
     public Detection detection;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         Material material = GetComponent<Renderer>().material;
@@ -26,7 +30,6 @@ public class NPCControler : MonoBehaviour
         state = patrolState;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (state.IsComplete)
