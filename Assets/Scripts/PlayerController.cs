@@ -6,19 +6,19 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private float Walkspeed = 5.5f;
-    [SerializeField] private float Runningspeed = 9.0f;
+    private float Walkspeed = 5.5f;
+    private float Runningspeed = 9.0f;
 
-    [SerializeField] private float Jumpforce = 8.0f;
-    [SerializeField] private float Gravity = 20.0f;
+    private float Jumpforce = 8.0f;
+    private float Gravity = 20.0f;
 
     private CharacterController characterController;
 
     public GameObject collectibles;
-    private float totalPoids = 0f;
+    private int totalPoids = 0;
 
     public CollectionHandler collectionHandler;
-    private float playerPoids = 0f;
+    private int playerPoids = 0;
     private float speedMult = 1f;
 
     private InputAction moveInput;
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (!characterController.isGrounded) jumped = false;
 
         playerPoids = collectionHandler.playerPoids;
-        speedMult = 1f - (playerPoids / (totalPoids*2)); // A aucun objet collecté, le mult est a 1, avec tout les objets collectés, le mult est a 0.5 
+        if (totalPoids !=0) speedMult = 1f - (playerPoids / (totalPoids*2)); // A aucun objet collecté, speedMult est a 1, avec tout les objets collectés, speedMult est a 0.5 
 
         currentMoveSpeed = runInput.IsPressed() ? Runningspeed * speedMult : Walkspeed * speedMult;
         HandleMovement(moveVector);

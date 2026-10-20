@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CollectibleVariables : MonoBehaviour
 {
-    [SerializeField] public float poids = 1f;
-    [SerializeField] public int valeur = 1;
+    [SerializeField] public int poids;
+    [SerializeField] public int valeur;
+    [SerializeField] public string nom;
 }
