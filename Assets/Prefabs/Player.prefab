@@ -345,6 +345,9 @@ MonoBehaviour:
   cubePrefab: {fileID: 8169679868241252971, guid: 4693efde888a87b41a2041a855b2a1b5, type: 3}
   cylinderPrefab: {fileID: 6946025823682543526, guid: cf925eb30902afa4b93b4726c0e4b423, type: 3}
   capsulePrefab: {fileID: 7453384707397541204, guid: 60a0dfd5df873504c9da230e1c37d5b2, type: 3}
+  cameraTransform: {fileID: 0}
+  playerTransform: {fileID: 0}
+  projectilsAnchor: {fileID: 0}
 --- !u!1 &5391228691632500359
 GameObject:
   m_ObjectHideFlags: 0

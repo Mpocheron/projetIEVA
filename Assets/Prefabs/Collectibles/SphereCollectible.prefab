@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7689471799758280520}
   - component: {fileID: 3365269737274881607}
   - component: {fileID: 2784892469099506937}
+  - component: {fileID: 6591654620238320658}
   m_Layer: 8
   m_Name: SphereCollectible
   m_TagString: Collectible
@@ -128,3 +129,15 @@ MonoBehaviour:
   poids: 1
   valeur: 1
   nom: Sphere
+--- !u!114 &6591654620238320658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375511490391080427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18fb483741ff0594cbbe842e3a6b1826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

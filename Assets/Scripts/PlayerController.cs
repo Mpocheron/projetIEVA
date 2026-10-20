@@ -6,19 +6,21 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
-    private float Walkspeed = 5.5f;
-    private float Runningspeed = 9.0f;
+    private float Walkspeed = 5f;
+    private float Runningspeed = 10f;
 
     private float Jumpforce = 8.0f;
     private float Gravity = 20.0f;
 
+    public Camera playerCamera;
+
     private CharacterController characterController;
 
     public GameObject collectibles;
-    private int totalPoids = 0;
+    private float totalPoids = 0;
 
     public CollectionHandler collectionHandler;
-    private int playerPoids = 0;
+    private float playerPoids = 0;
     private float speedMult = 1f;
 
     private InputAction moveInput;
@@ -57,6 +59,10 @@ public class PlayerController : MonoBehaviour
 
         playerPoids = collectionHandler.playerPoids;
         if (totalPoids !=0) speedMult = 1f - (playerPoids / (totalPoids*2)); // A aucun objet collecté, speedMult est a 1, avec tout les objets collectés, speedMult est a 0.5 
+
+        var rate = 40;
+        playerCamera.fieldOfView = runInput.IsPressed() ? Mathf.MoveTowards(playerCamera.fieldOfView, 80, rate * Time.deltaTime) : Mathf.MoveTowards(playerCamera.fieldOfView, 60, rate * Time.deltaTime);
+        if (moveVector == Vector2.zero) playerCamera.fieldOfView = Mathf.MoveTowards(playerCamera.fieldOfView, 60, rate * Time.deltaTime);
 
         currentMoveSpeed = runInput.IsPressed() ? Runningspeed * speedMult : Walkspeed * speedMult;
         HandleMovement(moveVector);
