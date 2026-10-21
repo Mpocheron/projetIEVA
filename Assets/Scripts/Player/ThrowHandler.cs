@@ -69,8 +69,7 @@ public class ThrowHandler : MonoBehaviour
 
             GameObject projectile = Instantiate(prefab, projectilsAnchor);
 
-            projectile.transform.rotation = cameraTransform.rotation;
-            projectile.transform.position = playerTransform.position + new Vector3(0f, 1.5f, 0f); // Pour des raisons inconnues, la position de la camera change parfoit, rendant l'instantiation instable
+            projectile.transform.SetPositionAndRotation(playerTransform.position + new Vector3(0f, 1.5f, 0f), cameraTransform.rotation);
 
             Rigidbody pRigid = projectile.GetComponent<Rigidbody>();
             pRigid.linearVelocity = projectile.transform.forward * 25;
