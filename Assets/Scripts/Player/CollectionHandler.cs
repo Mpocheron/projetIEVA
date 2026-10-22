@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CollectionHandler : MonoBehaviour
 {
+    private GameHandler gameMasterScript;
+
     [HideInInspector] public int playerPoids = 0;
     [HideInInspector] public int playerValeur = 0;
 
@@ -76,5 +78,10 @@ public class CollectionHandler : MonoBehaviour
         poidsText.text = "Poids : " + playerPoids.ToString();
 
         lastCollectibleText.text = (inventaire.Count == 0) ? "" : "Last Collectible : " + inventaire.Peek();
+    }
+
+    public void PlayerHit()
+    {
+        ObjectPopped(inventaire.Pop());
     }
 }

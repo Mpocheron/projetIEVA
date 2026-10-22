@@ -26,6 +26,7 @@ public class ThrowHandler : MonoBehaviour
 
     private GameObject prefab;
 
+
     private void Start()
     {
         throwInput = InputSystem.actions.FindAction("Interact");
