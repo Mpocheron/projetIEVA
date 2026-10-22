@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
 
+    [Space]
+
+    public AudioSource playerAudio;
+    public AudioClip jumpClip;
+
     private void Start()
     {
         gameMasterScript = GameObject.Find("GameMaster").GetComponent<GameHandler>();
@@ -91,6 +96,13 @@ public class PlayerController : MonoBehaviour
 
     private void Jumped(InputAction.CallbackContext _)
     {
-        jumped = true;  
+        jumped = true;
+
+        if (characterController.isGrounded)
+        {
+            playerAudio.volume = 1f;
+            playerAudio.clip = jumpClip;
+            playerAudio.Play();
+        }
     }
 }

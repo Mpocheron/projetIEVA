@@ -26,6 +26,12 @@ public class CollectionHandler : MonoBehaviour
 
     public Stack<string> inventaire = new();
 
+    [Space]
+
+    public AudioSource playerAudio;
+    public AudioClip hitClip;
+    public AudioClip pickupClip;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Collectible"))
@@ -38,6 +44,10 @@ public class CollectionHandler : MonoBehaviour
             valeurText.text = "Valeur : " + playerValeur.ToString();
             poidsText.text = "Poids : " + playerPoids.ToString();
             lastCollectibleText.text = "Last Collectible : " + inventaire.Peek();
+
+            playerAudio.clip = pickupClip;
+            playerAudio.volume = 0.5f;
+            playerAudio.Play();
 
             Destroy(other.gameObject);
         }
@@ -83,5 +93,9 @@ public class CollectionHandler : MonoBehaviour
     public void PlayerHit()
     {
         ObjectPopped(inventaire.Pop());
+
+        playerAudio.volume = 1f;
+        playerAudio.clip = hitClip;
+        playerAudio.Play();
     }
 }
