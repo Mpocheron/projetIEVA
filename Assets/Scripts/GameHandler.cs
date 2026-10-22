@@ -1,5 +1,9 @@
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
+using System;
+using System.Collections;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
@@ -11,8 +15,14 @@ public class GameHandler : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI nbColText;
+    public GameObject buttonReload;
+    public GameObject buttonMenu;
 
+    [Space]
+
+    public GameObject portal;
     public TextMeshPro scoreTextPortal;
+    public AudioSource audioPortal;
 
     [Space]
 
@@ -25,7 +35,6 @@ public class GameHandler : MonoBehaviour
     public Canvas canvasEnding;
 
     [Space]
-    public GameObject portal;
 
     private int nbCollectible;
     private float chrono = 0;
@@ -37,10 +46,21 @@ public class GameHandler : MonoBehaviour
     public GameObject cylinderPrefab;
     public GameObject capsulePrefab;
 
+    [Space]
+
+    public AudioSource playerAudio;
+    public AudioClip creditRollClip;
+
     private void Start()
     {
         nbCollectible = collectibles.transform.childCount;
         canvasEnding.enabled = false;
+
+        timeText.enabled = false;
+        scoreText.enabled = false;
+        nbColText.enabled = false;
+        buttonReload.SetActive(false);
+        buttonMenu.SetActive(false);
     }
 
     private void Update()
@@ -58,14 +78,16 @@ public class GameHandler : MonoBehaviour
         float seconds = Mathf.FloorToInt(time % 60);
         float centiseconds = Mathf.FloorToInt((time * 100) % 100);
 
-        timeText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, centiseconds);
+        timeText.text = string.Format("Temps : {0:00}:{1:00}:{2:00}", minutes, seconds, centiseconds);
     }
 
-    public void GameEnding()
+    public async Task GameEnding()
     {
         gameState = 1;
         player.transform.rotation = Quaternion.Euler(0, 0, 0);
         player.transform.position = portal.transform.position + new Vector3(0, -11.5f, 0);
+
+        audioPortal.transform.position = portal.transform.position + new Vector3(0, -11.5f, 0);
 
         player.GetComponentInChildren<Camera>().transform.rotation = Quaternion.Euler(0, 0, 0);
         player.GetComponentInChildren<Camera>().fieldOfView = 60;
@@ -77,6 +99,31 @@ public class GameHandler : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+
+        playerAudio.volume = 1f;
+        playerAudio.clip = creditRollClip;
+
+        StartCoroutine(MenuApparition());
+    }
+
+    IEnumerator MenuApparition()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerAudio.Play();
+        timeText.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+        playerAudio.Play();
+        scoreText.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+        playerAudio.Play();
+        nbColText.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+        playerAudio.Play();
+        buttonReload.SetActive(true);
+        buttonMenu.SetActive(true);
     }
 
     private void GetColletion()

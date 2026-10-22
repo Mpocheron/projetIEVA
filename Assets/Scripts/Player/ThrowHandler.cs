@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class ThrowHandler : MonoBehaviour
 {
+    private GameHandler gameMasterScript;
+
     public CollectionHandler collectionHandler;
 
     private InputAction throwInput;
@@ -26,15 +28,20 @@ public class ThrowHandler : MonoBehaviour
 
     private GameObject prefab;
 
+    [Space]
 
+    public AudioSource playerAudio;
+    public AudioClip throwClip;
+    
     private void Start()
     {
         throwInput = InputSystem.actions.FindAction("Interact");
+        gameMasterScript = GameObject.Find("GameMaster").GetComponent<GameHandler>();
     }
 
     private void Update()
     {
-        if (throwInput.WasPressedThisFrame()) {
+        if (throwInput.WasPressedThisFrame() && gameMasterScript.gameState == 0) {
             Throw();
         }
     }
@@ -42,6 +49,10 @@ public class ThrowHandler : MonoBehaviour
     private void Throw() {
         if (collectionHandler.inventaire.Count != 0)
         {
+            playerAudio.volume = 1f;
+            playerAudio.clip = throwClip;
+            playerAudio.Play();
+
             string objName = collectionHandler.inventaire.Pop();
 
             switch (objName)

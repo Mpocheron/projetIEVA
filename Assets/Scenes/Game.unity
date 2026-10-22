@@ -3202,6 +3202,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 271010851}
   m_LocalEulerAnglesHint: {x: 0, y: -11.592, z: 0}
+--- !u!1 &1118552258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938769288555979066, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+  m_PrefabInstance: {fileID: 1536327196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1156678032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,6 +3434,11 @@ Transform:
 --- !u!223 &1218386555 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 6657860584461721318, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+  m_PrefabInstance: {fileID: 1536327196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1220254698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8312647575158750714, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
   m_PrefabInstance: {fileID: 1536327196}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231385095
@@ -4417,14 +4427,6 @@ PrefabInstance:
       propertyPath: collectibles
       value: 
       objectReference: {fileID: 1381384889}
-    - target: {fileID: 4153417152216185638, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4153417152216185638, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6436850240420395487, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4472,14 +4474,6 @@ PrefabInstance:
     - target: {fileID: 6937584748197352255, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6961299100361976497, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -115
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845451978831698590, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5586,6 +5580,11 @@ Transform:
   - {fileID: 809454231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -47.631, z: 0}
+--- !u!82 &1708157647 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6455563050453963816, guid: 0427ed70cb81aba4c99ee6045bbe0c8c, type: 3}
+  m_PrefabInstance: {fileID: 3846240600185627109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1722015276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6271,16 +6270,21 @@ MonoBehaviour:
   timeText: {fileID: 647330234}
   scoreText: {fileID: 1301046645}
   nbColText: {fileID: 1514803791}
+  buttonReload: {fileID: 1118552258}
+  buttonMenu: {fileID: 1220254698}
+  portal: {fileID: 420790950}
   scoreTextPortal: {fileID: 1004410010}
+  audioPortal: {fileID: 1708157647}
   player: {fileID: 1884653703}
   collectionHandler: {fileID: 471125068}
   canvasGame: {fileID: 1659943839}
   canvasEnding: {fileID: 1218386555}
-  portal: {fileID: 420790950}
   spherePrefab: {fileID: 4375511490391080427, guid: d34f112b51ada404e87a8f9c4221cc5e, type: 3}
   cubePrefab: {fileID: 5074634500667608344, guid: 7069bc66483e50040bfd9b19b16cae0c, type: 3}
   cylinderPrefab: {fileID: 8170006866310953668, guid: 4bfce71fdb36fde499186161bf6e4f09, type: 3}
   capsulePrefab: {fileID: 3867409518588646802, guid: 178324d7a94d31e4db57890ce2e2b49e, type: 3}
+  playerAudio: {fileID: 2110419442}
+  creditRollClip: {fileID: 8300000, guid: fb2cb95f0297a4c4f9a897a7c3389870, type: 3}
 --- !u!1001 &1917678057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6404,6 +6408,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2155125667811695790, guid: d34f112b51ada404e87a8f9c4221cc5e, type: 3}
   m_PrefabInstance: {fileID: 1957474471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2110419442 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2248985694666214406, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+  m_PrefabInstance: {fileID: 1536327196}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3846240600185627109
 PrefabInstance:
