@@ -21,23 +21,28 @@ public class Detection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            RaycastHit coverHit;
+            RaycastHit[] coverHits;
 
-            if (Physics.Linecast(transform.position, other.transform.position, out coverHit))
+            Vector3 heading = other.transform.position - transform.position;
+
+            coverHits = Physics.RaycastAll(transform.position, heading, heading.magnitude);
+
+            if (coverHits.Length > 0)
             {
-                if (coverHit.transform.gameObject.layer == obstacleLayer)  // First detection is an obstacle -> player is hidden
+                foreach (RaycastHit hit in coverHits)
                 {
-                    isPlayerDetected = false;
-                    //Debug.DrawLine(transform.position, other.transform.position, Color.purple);
+                    if (hit.transform.gameObject.layer == obstacleLayer)
+                    {
+                        isPlayerDetected = false;
+                        return;
+                    }
                 }
-                else
-                {
-                    isPlayerDetected = true;
-                    //Debug.DrawLine(transform.position, other.transform.position, Color.yellow);
-                }
+
+                isPlayerDetected = true;
+                playerCollider = other;
             }
+
             
-            playerCollider = other;
         }
     }
 
