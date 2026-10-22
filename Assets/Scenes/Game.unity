@@ -4417,6 +4417,14 @@ PrefabInstance:
       propertyPath: collectibles
       value: 
       objectReference: {fileID: 1381384889}
+    - target: {fileID: 4153417152216185638, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153417152216185638, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6436850240420395487, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4464,6 +4472,14 @@ PrefabInstance:
     - target: {fileID: 6937584748197352255, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961299100361976497, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -115
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845451978831698590, guid: f574a7432836efe4a91accff50bb3ec2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
