@@ -65,13 +65,9 @@ public class NPCControler : MonoBehaviour
 
     public void projectileHit()
     {
-
-    }
-
-    public void InterruptState(State newState)
-    {
         state.Exit();
-        state = newState;
+
+        state = stunState;
 
         state.Initialise();
         state.Enter();
