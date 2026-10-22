@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private GameHandler gameMasterScript;
     private float Walkspeed = 5f;
     private float Runningspeed = 10f;
 
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        gameMasterScript = GameObject.Find("GameMaster").GetComponent<GameHandler>();
         // Pour récuperer la somme des poids de tout les collectibles
         characterController = GetComponentInChildren<CharacterController>();
         for (int i = 0; i < collectibles.transform.childCount; i++)
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (gameMasterScript.gameState == 1) return;
+
         Vector2 moveVector = moveInput.ReadValue<Vector2>();
 
         if (!characterController.isGrounded) jumped = false;

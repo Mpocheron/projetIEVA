@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    private GameHandler gameMasterScript;
+
     [SerializeField] private float LookSensitivity = 0.2f;
     [SerializeField] private float LookAngleLimit = 90f;
 
@@ -12,6 +14,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        gameMasterScript = GameObject.Find("GameMaster").GetComponent<GameHandler>();
+
         mainCamera = GetComponentInChildren<Camera>();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -19,6 +23,7 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if (gameMasterScript.gameState == 1) return;
         Vector2 mouseDelta = new Vector2(Mouse.current.delta.x.ReadValue(), Mouse.current.delta.y.ReadValue());
         HandleLooking(mouseDelta);
     }
