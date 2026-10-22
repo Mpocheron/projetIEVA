@@ -7,19 +7,36 @@ public class Detection : MonoBehaviour
 
     public Collider playerCollider { get; protected set; }
 
+    private int obstacleLayer;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isPlayerDetected = false;
+        obstacleLayer = LayerMask.NameToLayer("Obstacle");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Player Detected");
-            isPlayerDetected = true;
+            RaycastHit coverHit;
+
+            if (Physics.Linecast(transform.position, other.transform.position, out coverHit))
+            {
+                if (coverHit.transform.gameObject.layer == obstacleLayer)  // First detection is an obstacle -> player is hidden
+                {
+                    isPlayerDetected = false;
+                    //Debug.DrawLine(transform.position, other.transform.position, Color.purple);
+                }
+                else
+                {
+                    isPlayerDetected = true;
+                    //Debug.DrawLine(transform.position, other.transform.position, Color.yellow);
+                }
+            }
+            
             playerCollider = other;
         }
     }
