@@ -94,11 +94,13 @@ public class CollectionHandler : MonoBehaviour
     public void PlayerHit()
     {
         if (inventaire.Count == 0) SceneManager.LoadScene("GameOver");
+        else
+        {
+            ObjectPopped(inventaire.Pop());
 
-        ObjectPopped(inventaire.Pop());
-
-        playerAudio.volume = 1f;
-        playerAudio.clip = hitClip;
-        playerAudio.Play();
+            playerAudio.volume = 1f;
+            playerAudio.clip = hitClip;
+            playerAudio.Play();
+        }
     }
 }

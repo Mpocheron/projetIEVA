@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private GameHandler gameMasterScript;
+
     private float Walkspeed = 5f;
     private float Runningspeed = 10f;
 
@@ -41,8 +42,10 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameMasterScript = GameObject.Find("GameMaster").GetComponent<GameHandler>();
-        // Pour récuperer la somme des poids de tout les collectibles
+
         characterController = GetComponentInChildren<CharacterController>();
+
+        // Pour récuperer la somme des poids de tout les collectibles
         for (int i = 0; i < collectibles.transform.childCount; i++)
         {
             totalPoids += collectibles.transform.GetChild(i).GetComponent<CollectibleVariables>().poids;
@@ -55,6 +58,11 @@ public class PlayerController : MonoBehaviour
         jumpInput.started += Jumped;
 
         currentMoveSpeed = Walkspeed;
+    }
+
+    private void OnDestroy()
+    {
+        jumpInput.started -= Jumped;
     }
 
     private void Update()
@@ -94,11 +102,11 @@ public class PlayerController : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
-    private void Jumped(InputAction.CallbackContext _)
+    private void Jumped(InputAction.CallbackContext context)
     {
         jumped = true;
 
-        if (characterController.isGrounded)
+        if (characterController.isGrounded && gameMasterScript.gameState == 0)
         {
             playerAudio.volume = 1f;
             playerAudio.clip = jumpClip;
