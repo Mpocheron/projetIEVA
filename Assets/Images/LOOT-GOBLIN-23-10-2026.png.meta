@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d8cd068eea1b8742b439d62055e2c2f
+guid: cb075a30338a6b647a93b713f26e5eaa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4415391508536550319
-    second: LootGoblinTitle.png_0
+      213: -6124179695436989630
+    second: LOOT-GOBLIN-23-10-2026_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LootGoblinTitle.png_0
+      name: LOOT-GOBLIN-23-10-2026_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1023
-        height: 274
+        width: 1024
+        height: 325
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa3e89aee2f964d30800000000000000
-      internalID: 4415391508536550319
+      spriteID: 24b71d8a30b820ba0800000000000000
+      internalID: -6124179695436989630
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LootGoblinTitle.png_0: 4415391508536550319
+      LOOT-GOBLIN-23-10-2026_0: -6124179695436989630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
