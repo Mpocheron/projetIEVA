@@ -4091,6 +4091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 6973332397897700406, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
+      propertyPath: playerSpottedSound
+      value: 
+      objectReference: {fileID: 1384826202}
     - target: {fileID: 7483359813628901052, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.35
@@ -4098,6 +4102,14 @@ PrefabInstance:
     - target: {fileID: 7483359813628901052, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602240177204168600, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602240177204168600, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8616585222762731394, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4112,6 +4124,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
+--- !u!82 &1384826202 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8602240177204168600, guid: 34e3975ef214a4b48827d71465ab0992, type: 3}
+  m_PrefabInstance: {fileID: 1384826201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1402731469
 GameObject:
   m_ObjectHideFlags: 0
