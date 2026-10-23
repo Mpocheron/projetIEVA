@@ -27,7 +27,6 @@ public class NPCControler : MonoBehaviour
 
     void Start()
     {
-        playerSpottedSound = GetComponentInChildren<AudioSource>();
         Material material = GetComponent<Renderer>().material;
 
         patrolState.Setup(navMeshAgent, detection, contactDetection, material);
