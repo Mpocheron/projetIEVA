@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectionHandler : MonoBehaviour
 {
@@ -92,6 +93,8 @@ public class CollectionHandler : MonoBehaviour
 
     public void PlayerHit()
     {
+        if (inventaire.Count == 0) SceneManager.LoadScene("GameOver");
+
         ObjectPopped(inventaire.Pop());
 
         playerAudio.volume = 1f;

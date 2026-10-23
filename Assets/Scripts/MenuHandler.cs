@@ -16,6 +16,9 @@ public class MenuHandler : MonoBehaviour
         buttonPlay.SetActive(false);
         buttonQuit.SetActive(false);
 
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         StartCoroutine(MenuApparition());
     }
 
