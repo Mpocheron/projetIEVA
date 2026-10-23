@@ -19,22 +19,24 @@ Lors de l'exploration, la mécanique d'**Eviter** est représentée par les gard
 ### Mouvements du joueur
 *Réalisé par Nathan*
 Les mouvements sont basiques :
-**ZQSD** pour se déplacer, **espace** pour sauter, **e** pour lancer un objet récolté.
+**ZQSD** pour se déplacer, **espace** pour sauter, **e** pour lancer un objet récolté.  
 
-La physique est géré par un character controler, tandis que toute collision non-physique (avec un NPC, un collectible ou le portail de fin) est géré par un autre collider.
+La physique est gérée par un character controller, tandis que toute collision non-physique (avec un NPC, un collectible ou le portail de fin) est gérée par un autre collider.  
 
-C'est donc ce collider qui gere la collection, et l'envoie de projectile.
+C'est donc ce collider qui gère la collection, et l'envoie de projectile.
 Chaque collectible a un poids et une valeur, ainsi qu'un nom.
-C'est ce nom qui est stocké dans une pile qui permet de sauvegarder quel collectible le joueur à récuperé, et quel est le prochain objet à instantier en temps que projectile.
+C'est ce nom qui est stocké dans une pile qui permet de sauvegarder quel collectible le joueur a récuperé, et quel est le prochain objet à instantier en temps que projectile.  
 
-De plus, le joueur possede 2 Canvas, un pour l'UI utilisé en jeu, qui affiche la valeur totale transporté, le poids total transporté, et le dernier objet ajouté à la pile d'inventaire.
-L'autre Canva sert uniquement de menu quand le joueur rentre dans le portail et termine la partie, et affiche son temps et son score, avec une option pour recommencer ou revenir au menu princiapal.
+De plus, le joueur possede 2 Canvas, un pour l'UI utilisée en jeu, qui affiche la valeur totale transportée, le poids total transporté, et le dernier objet ajouté à la pile d'inventaire.
+L'autre Canva sert uniquement de menu quand le joueur rentre dans le portail et termine la partie, et affiche son temps et son score, avec une option pour recommencer ou revenir au menu principal.
 
-###
+
+### Portail
 
 Le portail est le moyen de finir la partie.
 Quand le joueur rentre dedans, la partie se termine.
-Pour cela, un simple collider vérifie si des objets sont lancés dans le portail, ou le joueur lui meme.
+Pour cela, un simple collider vérifie si des objets sont lancés dans le portail, ou le joueur lui-même.
+
 
 ### Déplacement des NPCs
 *Réalisé par Matéo*  
