@@ -64,5 +64,5 @@ Le NPC possède un composant principal NPCControler, qui rassemble les composant
 ## Conseils de jeu
 
 - Les objets que vous lancez sont détruits. Priviligiez donc des objets avec peu de valeur !
-- Le poids total transporté vous ralentit. Il est donc conseillé, si vous etes trop lourd, de revenir au portail pour lancer des objets dans le portail. Cela ne les détruits pas, au contraire, ca les sauvegardes pour le score final !
+- Le poids total transporté vous ralentit. Il est donc conseillé, si vous êtes trop lourd, de revenir au portail pour y lancer des objets. Cela ne les détruit pas, au contraire, ils sont sauvegardés pour le score final !
 - Quand vous vous faites attraper, vous perdez votre objet le plus récent. Si vous n'avez aucun objet quand vous vous faites attraper, c'est la fin de partie!
