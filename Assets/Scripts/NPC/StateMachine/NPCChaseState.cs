@@ -15,6 +15,8 @@ public class NPCChaseState : State
         NPCmaterial.color = Color.red;
 
         lastSeenPosition = detection.playerCollider.transform.position;
+
+        GetComponentInParent<NPCControler>().playerSpottedSound.Play();
     }
 
     public override void Exit()

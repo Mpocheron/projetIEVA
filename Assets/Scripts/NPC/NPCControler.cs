@@ -22,8 +22,12 @@ public class NPCControler : MonoBehaviour
     public ContactDetection contactDetection;
 
 
+    public AudioSource playerSpottedSound;
+
+
     void Start()
     {
+        playerSpottedSound = GetComponentInChildren<AudioSource>();
         Material material = GetComponent<Renderer>().material;
 
         patrolState.Setup(navMeshAgent, detection, contactDetection, material);
