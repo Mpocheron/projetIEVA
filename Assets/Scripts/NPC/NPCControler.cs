@@ -15,12 +15,13 @@ public class NPCControler : MonoBehaviour
 
     /* --- Blackboard Variables ---*/
 
-    public NavMeshAgent navMeshAgent;
-
     public Detection detection;
 
     public ContactDetection contactDetection;
 
+    /* --- Composants --- */
+
+    public NavMeshAgent navMeshAgent;
 
     public AudioSource playerSpottedSound;
 
