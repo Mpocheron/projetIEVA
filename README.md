@@ -18,6 +18,23 @@ Lors de l'exploration, la mécanique d'**Eviter** est représentée par les gard
 
 ### Mouvements du joueur
 *Réalisé par Nathan*
+Les mouvements sont basiques :
+**ZQSD** pour se déplacer, **espace** pour sauter, **e** pour lancer un objet récolté.
+
+La physique est géré par un character controler, tandis que toute collision non-physique (avec un NPC, un collectible ou le portail de fin) est géré par un autre collider.
+
+C'est donc ce collider qui gere la collection, et l'envoie de projectile.
+Chaque collectible a un poids et une valeur, ainsi qu'un nom.
+C'est ce nom qui est stocké dans une pile qui permet de sauvegarder quel collectible le joueur à récuperé, et quel est le prochain objet à instantier en temps que projectile.
+
+De plus, le joueur possede 2 Canvas, un pour l'UI utilisé en jeu, qui affiche la valeur totale transporté, le poids total transporté, et le dernier objet ajouté à la pile d'inventaire.
+L'autre Canva sert uniquement de menu quand le joueur rentre dans le portail et termine la partie, et affiche son temps et son score, avec une option pour recommencer ou revenir au menu princiapal.
+
+###
+
+Le portail est le moyen de finir la partie.
+Quand le joueur rentre dedans, la partie se termine.
+Pour cela, un simple collider vérifie si des objets sont lancés dans le portail, ou le joueur lui meme.
 
 ### Déplacement des NPCs
 *Réalisé par Matéo*
@@ -41,3 +58,9 @@ Lorque que le garde reçoit un projectile, son état actuel est interrompu et il
 
 La classe abstraite *State* défini un état possible pour le NPC. Chaque état implémente cette classe et défini le comportement du NPC dans cet état, ainsi que la condition de fin de cet état.
 Le NPC possède un composant principal NPCControler, qui rassemble les composants de détection et gère les conditions d'entrée dans chaque état.
+
+## Conseils de jeu
+
+- Les objets que vous lancez sont détruits. Priviligiez donc des objets avec peu de valeur !
+- Le poids total transporté vous ralentit. Il est donc conseillé, si vous etes trop lourd, de revenir au portail pour lancer des objets dans le portail. Cela ne les détruits pas, au contraire, ca les sauvegardes pour le score final !
+- Quand vous vous faites attraper, vous perdez votre objet le plus récent. Si vous n'avez aucun objet quand vous vous faites attraper, c'est la fin de partie!
