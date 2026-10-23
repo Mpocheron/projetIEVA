@@ -17,6 +17,9 @@ public class ContactDetection : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isTouchingPlayer = true;
+            other.GetComponentInChildren<CollectionHandler>().PlayerHit();
+
+            //TODO: Add audio
         }
 
         if (other.CompareTag("Projectile"))
