@@ -5,6 +5,8 @@ public class NPCChaseState : State
 {
     public float maxChaseTime;
 
+    public float chaseSpeed;
+
     public float closeDistance = 0.1f;
 
     Vector3 lastSeenPosition;
@@ -13,6 +15,8 @@ public class NPCChaseState : State
     public override void Enter()
     {
         NPCmaterial.color = Color.red;
+
+        navMeshAgent.speed = chaseSpeed;
 
         lastSeenPosition = detection.playerCollider.transform.position;
 
